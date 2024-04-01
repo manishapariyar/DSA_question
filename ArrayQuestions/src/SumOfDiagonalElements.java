@@ -8,7 +8,7 @@ public class SumOfDiagonalElements {
         long leftSum = sumOfLeftDiagonals(numArr);
         long rightSum = sumOfRightDiagonals(numArr);
         long sum = leftSum+rightSum;
-        if(numArr.length%2==0){
+        if(numArr.length%2!=0){
           int i = numArr.length/2;
           sum -= numArr[i][i];
         }
@@ -16,18 +16,16 @@ public class SumOfDiagonalElements {
     }public static long sumOfLeftDiagonals(int[][] numArr){
    long sum = 0;
         for (int i = 0; i <numArr.length ; i++) {
-            for (int j = 0; j < numArr.length; j++) {
-             sum +=numArr[i][i];
+               sum +=numArr[i][i];
             }
+        return  sum;
         }
-        return sum;
-    }public static long sumOfRightDiagonals(int[][] numArr){
+        public static long sumOfRightDiagonals(int[][] numArr){
 
         long sum = 0;
         for (int i = 0; i <numArr.length ; i++) {
-            for (int j = numArr.length-1; j >0; j++) {
-                sum +=numArr[i][i];
-            }
+           int col = numArr.length -1-i;
+           sum += numArr[i][col];
         }
         return sum;
     }
