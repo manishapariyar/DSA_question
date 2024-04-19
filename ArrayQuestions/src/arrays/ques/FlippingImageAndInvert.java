@@ -1,3 +1,5 @@
+package arrays.ques;
+
 import java.util.Arrays;
 
 //https://leetcode.com/problems/flipping-an-image/description/

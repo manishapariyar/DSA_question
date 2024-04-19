@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package arrays.ques;
+
 import java.util.Scanner;
 
 //https://leetcode.com/problems/cells-with-odd-values-in-a-matrix/description/
@@ -39,5 +40,43 @@ public class CellsWithOddValues {
             }
         }
         return count;
+    }
+
+    //https://leetcode.com/problems/jump-game/
+    public static class JumpGame {
+        public static void main(String[] args) {
+            int[] array = {1,1,2,5,2,1,0,0,1,3};
+            System.out.println(canJump(array));
+        }
+
+        public static boolean canJump(int[] nums) {
+
+
+             int finalPostion = nums.length-1;
+            for (int i = nums.length-2; i >=0 ; i--) {
+
+                if (i+nums[i]>=finalPostion){
+                    finalPostion = i;
+                }
+                }
+
+          return finalPostion==0;
+
+        }
+    }
+
+    public static class HouseRobber {
+        public static void main(String[] args) {
+            int[] nums = {2,7,9,3,1};
+            int i= 0;
+            int j = nums.length-1;
+            int sum =0;
+            while (i<= j){
+               sum += nums[i];
+
+                i+=2;
+            }
+            System.out.println(sum);
+        }
     }
 }
