@@ -6,15 +6,21 @@ public class SquareRoot {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int mySqrt = input.nextInt();
-        int sqrt = 0;
-        for(int i = 1; i<=mySqrt; i++){
-            if(mySqrt%2==0){
-                if(i*i == mySqrt){
-                    sqrt = i;
-                }
+        int low = 0;
+        int high = mySqrt;
+        int ans = 0;
+        while (low<=high){
+            int mid = low +(high-low)/2;
+            if (mid*mid<= mySqrt){
+                ans = mid;
+                low = mid+1;
             }
+            else {
+                high =  mid -1;
+            }
+
         }
 
-        System.out.println(sqrt);
+        System.out.println(ans);
     }
 }
