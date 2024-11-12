@@ -3,7 +3,7 @@ package searching;
 public class FindPositionOfElement {
     public static void main(String[] args) {
         int[] nums = {3,5,7,9,10,100,120,140,160,170};
-        int target = 100 ;
+        int target = 10 ;
         System.out.println(findingRange(nums,target));
     }
     static int findingRange(int[] arr, int target ){
