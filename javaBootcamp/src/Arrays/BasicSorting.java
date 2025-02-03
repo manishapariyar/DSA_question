@@ -1,3 +1,5 @@
+package Arrays;
+
 public class BasicSorting {
     public static void main(String[] args) {
         int[] array = {3,6,2,1,8,7,4,5,3,1};

@@ -1,3 +1,5 @@
+package Arrays;
+
 public class TwiceInArray {
     public static void main(String[] args) {
         int[] arr = {1,3,2,4};
