@@ -33,13 +33,23 @@ public class FindFirstOccurence
         return x*xnm1;
 
     }
+    public  static  int opPower(int x, int n){
+        if(n==0){
+            return 1;
+        }
+        int halfSq = opPower(x,n/2);
+        int halfPowSq = halfSq*halfSq;
+        if(n%2 !=0){
+            halfPowSq = x*halfPowSq;
+        }
+        return halfPowSq;
+
+    }
 
 
     public static void main(String[] args) {
-        int[] arr = {5,5,5,5};
-        int target = 5;
-        int  n= lastOccurence(arr,target,0);
-
+       int n= opPower(2,5);
         System.out.println(n);
+
     }
 }
