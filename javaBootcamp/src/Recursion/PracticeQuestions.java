@@ -33,9 +33,23 @@ public static void printDigits(int num) {
         int count = (s.charAt(start)== s.charAt(end))?1:0;
         return count+countSubString(s,start,end+1);
     }
+
+
+    public static void towerOfHanoi(int n, String source, String Helper, String Destination) {
+//        base case
+        if (n==1){
+            System.out.println("transfer disk " + n +" " + "from" +" " +source + " to"+" "  + Destination);
+         return;
+        }
+        towerOfHanoi(n-1,source,Destination,Helper);
+        System.out.println("transfer disk " + n +" " + "from" +" " + source + " to" +" " + Destination);
+        towerOfHanoi(n-1,Helper,source,Destination);
+
+    }
     public static void main(String[] args) {
-//        printDigits(2019);
-        String s = "abcab";
-        System.out.println(countSubString(s,0,0));
+////        printDigits(2019);
+//        String s = "abcab";
+//        System.out.println(countSubString(s,0,0));
+        towerOfHanoi(3,"S","H","D");
     }
 }

@@ -4,7 +4,7 @@ public class TillingProblem {
     public static void main(String[] args) {
         String name = "manishsaa";
         removeDuplicates(name,0,new StringBuilder(""),new boolean[26]);
-        System.out.println(tilingProblem(4));
+//        System.out.println(tilingProblem(4));
         System.out.println(friendPairing(3));
     }
     public  static  int tilingProblem(int n){
