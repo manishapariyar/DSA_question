@@ -1,5 +1,6 @@
 package Arrays;
 
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Arrays {
@@ -117,6 +118,9 @@ public class Arrays {
 
         }
         System.out.println(maxSum);
+    }
+
+    public static void sort(double[][] ratio, Comparator<Object> objectComparator) {
     }
 
 
