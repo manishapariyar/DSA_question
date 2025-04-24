@@ -1,8 +1,7 @@
 package Backtracking;
 
-public class Nqueens {
-    static int count = 0;
-//    cases for checking the save index
+public class NqueenPrintOnlyOne {
+
     public static  boolean isSafe(char[][] board,int row,int col){
 
         //vertically up
@@ -11,7 +10,7 @@ public class Nqueens {
                 return false;
             }
         }
-         // diagonally right
+        // diagonally right
         for (int i = row-1 , j=col+1; i >=0 && j< board.length ; i--,j++) {
             if (board[i][j]=='Q'){
                 return false;
@@ -26,23 +25,6 @@ public class Nqueens {
         }
         return true;
     }
-    public  static void nQueens(char[][] board , int row){
-//        base case
-        if (row==board.length){
-//            printBoard(board);
-            count++;
-            return;
-        }
-//        col loop
-        for (int j = 0; j < board.length; j++) {
-            if (isSafe(board,row,j)){
-                board[row][j] = 'Q';
-                nQueens(board,row+1); //calling function
-                board[row][j] = 'X';   //backtracking
-            }
-
-        }
-    }
     public  static  void  printBoard(char[][] board){
         System.out.println("___________________________");
         for (int i = 0; i <board.length ; i++) {
@@ -53,16 +35,32 @@ public class Nqueens {
         }
 
     }
-    public static void main(String[] args) {
-        int n = 4;
-        char[][] board = new char[n][n];
-        for (int i = 0; i <n ; i++) {
-            for (int j = 0; j < n; j++) {
-                board[i][j]= 'X';
+    public  static boolean nQueen(char[][] board, int row){
+        if (row == board.length){
+            printBoard(board);
+            return true;
+        }
+        for (int i = 0; i < board.length ; i++) {
+            if(isSafe(board,row,i)){
+                board[row][i] = 'Q';
+                if (nQueen(board,row+1)){
+                    return  true;
+                }
+                board[row][i] = 'X';
             }
 
         }
-        nQueens(board,0);
-        System.out.println(" the total count of chess board" + " " + count);
+        return false;
+    }
+    public static void main(String[] args) {
+        int n = 4;
+        char[][] chessBoard = new char[n][n];
+
+        for (int i = 0; i <n; i++) {
+            for (int j = 0; j <n; j++) {
+                chessBoard[i][j] = 'X';
+            }
+        }
+        nQueen(chessBoard,0);
     }
 }
