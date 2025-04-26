@@ -20,7 +20,7 @@ public class SudokuSolver {
         for (int digit = 1; digit <=9 ; digit++) {
             if (isSafe(sudoku,row,col,digit)){
                 sudoku[row][col] = digit;
-              if(  sudokuSolver(sudoku,nextRow,nextCol)){
+              if(sudokuSolver(sudoku,nextRow,nextCol)){
                   return true;
               }
                 sudoku[row][col] = 0;

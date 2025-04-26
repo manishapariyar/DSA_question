@@ -29,7 +29,7 @@ public class Nqueens {
     public  static void nQueens(char[][] board , int row){
 //        base case
         if (row==board.length){
-//            printBoard(board);
+            printBoard(board);
             count++;
             return;
         }
