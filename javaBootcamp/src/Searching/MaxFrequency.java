@@ -10,27 +10,44 @@ public class MaxFrequency {
 //            4 has a frequency of 3.
 
     public static void main(String[] args) {
-        int[] number = {3,9,6};
-        int k = 2;
+        int[] number = {1,2,4};
+        int k = 5;
         System.out.println(maxFrequency(number,k));
 
     }
     public static int maxFrequency(int[] nums, int k){
         int maxFreq = 0;
         int start = 0;
-        long total = 0;
-
-        for (int i = 0; i < nums.length; i++) {
-              total +=nums[i];
-            while((long) nums[i]*(i-start+1)-total>k){
-                total -= nums[start];
+        int end = 0;
+        Arrays.sort(nums);
+        long sum = nums[0];
+        while(start< nums.length){
+            if ((start-end+1)*nums[start]<k+sum){
+                maxFreq = Math.max(maxFreq,start-end+1);
                 start++;
+                if (start<nums.length)sum+=nums[start];
+            }else{
+                sum-=nums[end];
+                end++;
             }
-          maxFreq = Math.max(maxFreq,i-start+1);
         }
         return  maxFreq;
     }
 
+    public static int bruteForce(int[] nums, int k){
+        int max = 0;
+        int start = 0;
+        int total =0;
+        for (int i = 0; i <nums.length ; i++) {
+            while(i<nums.length && start>k){
+                total = nums[i]-1;
+                start++;
+            }
+            total = nums[i]+1;
+            max = Math.max(max,start+i);
+        }
+        return max;
+    }
     public static  boolean binarySearch(int[] nums,int target){
 
         Arrays.sort(nums);

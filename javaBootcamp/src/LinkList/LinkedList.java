@@ -144,6 +144,8 @@ public class LinkedList {
       return helper(head,target);
      }
      void reverseInLinkedList(){
+        //0(N)
+
         Node prev = null;
         Node curr = tail = head;
         Node next;
@@ -156,6 +158,9 @@ public class LinkedList {
         }
         head = prev;
      }
+//     int RemoveNthNode(){
+//
+//     }
     public static void main(String[] args) {
           LinkedList ll = new LinkedList();
           ll.addFirst(2);
