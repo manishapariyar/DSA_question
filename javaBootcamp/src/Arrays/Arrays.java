@@ -123,6 +123,9 @@ public class Arrays {
     public static void sort(double[][] ratio, Comparator<Object> objectComparator) {
     }
 
+    public static void sort(int[] abs) {
+    }
+
 
     public static class introOfJava {
 
