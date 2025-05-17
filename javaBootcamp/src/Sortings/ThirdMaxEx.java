@@ -2,7 +2,7 @@ package Sortings;
 
 import java.util.Arrays;
 
-public class EthirdMax {
+public class ThirdMaxEx {
     public static void main(String[] args) {
         int[] nums = {-100,-98,4,3,2,-1};
 //        System.out.println(thirdMax(nums));

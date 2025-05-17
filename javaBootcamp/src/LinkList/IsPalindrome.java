@@ -80,7 +80,7 @@ public class IsPalindrome {
         while(right!=null){
             if (left.data != right.data){
                 return false;
-            }
+             }
             left = left.next;
             right = right.next;
         }
