@@ -1,6 +1,6 @@
 package LinkList;
 
-public class IsPalindrome {
+public class  IsPalindrome {
     //slow  fast concept
     // reverse half ll
      public  static  class  Node{

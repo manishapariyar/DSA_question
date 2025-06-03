@@ -181,14 +181,60 @@ public class LinkedList {
          return;
 
      }
+     Node insertionSortList(){
+        if (head==null|| head.next==null) return head;
+
+        Node tem = new Node(Integer.MIN_VALUE);
+        Node curr = head;
+        while(curr!= null){
+            Node nextNode = curr.next;
+            Node prev = tem;
+            while(prev.next!=null&& prev.next.data<curr.data){
+                prev = prev.next;
+            }
+            curr.next = prev.next;
+            prev.next = curr;
+            curr = nextNode;
+        }
+        return tem.next;
+     }
+    public Node skipMdeleteN(Node head,int m , int n){
+        Node currHead = head;
+        Node temp;
+        int count;
+        if (currHead==null) return head;
+        if(currHead!=null){
+        for (count=1;count<m && currHead!=null;count++
+        ){
+        currHead = currHead.next;}
+
+         temp = currHead.next;
+           for (count = 1;count<=n &&temp!=null;count++){
+               Node t = temp;
+               temp=temp.next;
+               t = null;
+           }
+           currHead.next = temp;
+           currHead = temp;
+        }
+        return head;
+    }
+
+
     public static void main(String[] args) {
           LinkedList ll = new LinkedList();
           ll.addFirst(2);
+        ll.addLast(3);
+
           ll.addFirst(1);
           ll.addLast(4);
           ll.addLast(5);
-          ll.addInMiddle(2,3);
-          ll.RemoveNthNode(4 );
+
+
+        ll.print();
+       int m = 2 ,n=2;
+       ll.skipMdeleteN(head,m,n);
         ll.print();
     }
+
 }

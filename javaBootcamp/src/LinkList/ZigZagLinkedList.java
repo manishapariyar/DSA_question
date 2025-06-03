@@ -18,7 +18,7 @@ public class ZigZagLinkedList {
         //get mid
         Node mid = getMid(head);
 
-         //servers second half
+         //revers second half
         Node curr = mid.next;
         mid.next = null;
         Node prev = null;
