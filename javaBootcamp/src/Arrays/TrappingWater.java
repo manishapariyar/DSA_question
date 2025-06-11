@@ -16,7 +16,6 @@ public class TrappingWater {
 
         }
 
-
 //        calculate Right max boundary -array
 
          int[] rightMax = new int[n];

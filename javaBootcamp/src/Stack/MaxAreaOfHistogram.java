@@ -8,11 +8,10 @@ public class MaxAreaOfHistogram {
         int maxArea = 0;
         int[] nsr = new int[arr.length];
         int[] nsl = new int[arr.length];
-
         // next smaller left
         Stack<Integer> st = new Stack<>();
         for (int i = 0; i <arr.length ; i++) {
-            while(!st.isEmpty() && arr[st.peek()]>=arr[i]){
+            while(!st.isEmpty() && arr[st.peek()]<=arr[i]){
                 st.pop();
             }
             if (st.isEmpty()){
@@ -41,14 +40,14 @@ public class MaxAreaOfHistogram {
         for (int i = 0; i <arr.length ; i++) {
             int height = arr[i];
             int width = nsr[i]-nsl[i]-1;
-            int currentArea = height*width;
+            int currentArea = height-width;
             maxArea = Math.max(maxArea,currentArea);
         }
         System.out.println("maximum area in histogram = "+ maxArea );
     }
 
     public static void main(String[] args) {
-        int[] arr = {2,1,5,6,2,3};
+        int[] arr = {7,0,4,2,5,0,6,4,0,5};
         maxArea(arr);
     }
 }

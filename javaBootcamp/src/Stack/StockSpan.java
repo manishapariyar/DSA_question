@@ -24,9 +24,11 @@ public class StockSpan {
     public static void main(String[] args) {
         int stock[] ={ 100,80,60,70,60,75,85};
         int span[] = new int[stock.length];
+        
         stockSpan(stock,span);
         for (int i = 0; i <span.length ; i++) {
             System.out.print( span[i] + " ");
+
         }
 
     }
