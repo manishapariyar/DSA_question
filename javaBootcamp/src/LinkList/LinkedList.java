@@ -2,6 +2,8 @@ package LinkList;
 
 public class LinkedList {
 
+
+
     public static class Node{
         int data;
         Node next;
@@ -76,7 +78,27 @@ public class LinkedList {
          temp.next = newNode;
      }
 
+    public Node reverseList(Node head , int left , int right){
+        if (head == null || left==right) return  head;
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node prev = dummy;
 
+        for (int i = 0; i <left ; i++) {
+            prev = prev.next;
+        }
+        Node curr = prev.next;
+        Node next = null;
+        for (int i = 0; i < right - left; i++) {
+            next = curr.next;
+            curr.next = next.next;
+            next.next = prev.next;
+            prev.next = next;
+        }
+
+        return dummy.next;
+
+    }
     int removeFirst(){
         if (size==0){
             System.out.println("linkedlist is empty");
@@ -232,6 +254,7 @@ public class LinkedList {
 
 
         ll.print();
+        ll.reverseList(head,2,4);
        int m = 2 ,n=2;
        ll.skipMdeleteN(head,m,n);
         ll.print();
