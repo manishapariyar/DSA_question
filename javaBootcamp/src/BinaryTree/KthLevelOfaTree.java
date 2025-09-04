@@ -18,18 +18,19 @@ public class KthLevelOfaTree {
     }
 
      // recursive
-        public static void  kthLevel(Node root,int level,int k) {
-           if (root == null) return;
+        public static  ArrayList<Integer>  kthLevel(Node root,int level,int k) {
+
+            ArrayList<Integer> st = new ArrayList<>();
+        if (root == null) return st;
 
            if (level==k){
-                     System.out.print(root.data + " ");
-                     return;
+                     st.add(root.data);
 
            }
            kthLevel(root.left,level+1,k);
            kthLevel(root.right,level+1,k);
 
-
+      return st;
     }
 
     // iterative
@@ -75,6 +76,6 @@ public class KthLevelOfaTree {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
 
-      kthLevel2(root,3);
+        System.out.println(kthLevel(root,1,3));
     }
 }

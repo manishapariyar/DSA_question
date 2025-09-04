@@ -7,7 +7,7 @@ public class BuildBST {
         int data;
         Node left;
         Node right;
-        Node(int data){
+         Node(int data){
             this.data= data;
         }
     }

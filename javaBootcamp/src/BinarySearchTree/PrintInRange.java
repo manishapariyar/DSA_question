@@ -58,15 +58,40 @@ public class PrintInRange {
            path.remove(path.size()-1);
 
        }
+       public static boolean isValidBST(Node root, Node min,Node max){
+            if (root==null) return true;
+            if (min!=null&& root.data<=min.data)return false;
+            if (max!=null && root.data>=max.data)return false;
+            return isValidBST(root.left,min,root) && isValidBST(root.right,root,max);
+       }
+       public static Node sortedArrayToBalanceBST(ArrayList<Integer> nums,int start,int end){
+            if (start>end) return null;
+
+            int mid = start+end/2;
+            Node root = new Node(nums.get(mid));
+            root.left =  sortedArrayToBalanceBST(nums,start,mid-1);
+           root.right= sortedArrayToBalanceBST(nums,mid+1,end);
+            return root;
+       }
+       public static ArrayList<Integer> inorderSequence(Node root,ArrayList<Integer> nodes){
+            if (root==null) return nodes;
+            inorderSequence(root.left,nodes);
+            nodes.add(root.data);
+            inorderSequence(root.right,nodes);
+            return nodes;
+       }
+
 
        public static void main(String[] args) {
-        int[] nums = {8,5,3,6,10,11,14};
+        int[] nums = {8,6,5,3,10,11,14};
         Node root = null;
            for (int num : nums) {
                root = insert(root, num);
            }
+           ArrayList<Integer> nodes = new ArrayList<>();
+           System.out.println(inorderSequence(root,nodes));
+           sortedArrayToBalanceBST(nodes,0,nodes.size()-1);
 
-           rootToLeafPath(root, new ArrayList<>());
        }
     }
 }

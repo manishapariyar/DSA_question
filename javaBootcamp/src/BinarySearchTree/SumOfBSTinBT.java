@@ -1,0 +1,59 @@
+package BinarySearchTree;
+
+public class SumOfBSTinBT {
+ static  class Node{
+     int data;
+      Node left,right;
+      Node (int data){
+          this.data = data;
+          this.left = null;
+          this.right = null;
+      }
+
+ }
+ static class Info{
+        boolean isBST;
+        int sum;
+        int min;
+        int max;
+        public Info(boolean isBST,int sum, int min, int max){
+            this.isBST = isBST;
+            this.min = min;
+            this.max = max;
+            this.sum = sum;
+        }
+    }
+  public static  int maxSum = 0;
+  public static Info  sumOfBST (Node root){
+      if (root==null) {
+          return new Info(true,0, Integer.MAX_VALUE, Integer.MIN_VALUE);
+      };
+
+     Info leftInfo =   sumOfBST(root.left);
+     Info rightInfo =  sumOfBST(root.right);
+      int sum = leftInfo.sum+rightInfo.sum+root.data;
+      int min = Math.min(root.data,Math.min(leftInfo.min,rightInfo.min));
+      int max = Math.max(root.data,Math.max(leftInfo.max, rightInfo.max));
+      if (!leftInfo.isBST || !rightInfo.isBST || root.data <= leftInfo.max || root.data >= rightInfo.min)
+          return new Info(false, sum, min, max);
+
+      maxSum = Math.max(maxSum, sum);
+      return new Info(true, sum, min, max);
+
+  }
+
+    public static void main(String[] args) {
+         Node root = new Node(50);
+        root.left = new Node(30);
+        root.left.left = new Node(5);
+        root.left.right = new Node(20);
+        root.right = new Node(60);
+        root.right.left = new Node(45);
+        root.right.right = new Node(70);
+        root.right.right.left = new Node(65);
+        root.right.right.right = new  Node(80);
+
+        sumOfBST(root);
+        System.out.println(maxSum);
+    }
+}
