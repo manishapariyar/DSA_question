@@ -21,7 +21,7 @@ public class InsertInHeap {
             }
         }
         public int peek(){
-            return arr.get(0);
+                return arr.get(0);
         }
         private void heapify( int i ){
             int left = 2*i+1;
